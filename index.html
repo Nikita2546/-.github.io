@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КПУП "Речицаводоканал" — Официальный сайт</title>
+    <meta name="description" content="Водоснабжение и водоотведение в г. Речица. Актуальные новости, контакты, график работы.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Модальное окно -->
+    <div class="modal" id="infoModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modalTitle">Заголовок</h3>
+            <p id="modalText">Текст сообщения</p>
+            <button class="btn" id="modal-close-btn">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Админ-панель -->
+    <div id="admin-panel" class="admin-panel hidden">
+        <div class="admin-container">
+            <span class="close-admin">&times;</span>
+            <h3 class="admin-title">Административная панель</h3>
+            <form id="admin-login-form" class="admin-form">
+                <div class="form-group">
+                    <label for="admin-login">Логин:</label>
+                    <input type="text" id="admin-login" placeholder="Введите логин" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Пароль:</label>
+                    <input type="password" id="admin-password" placeholder="Введите пароль" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Войти</button>
+            </form>
+            <div class="admin-actions hidden" id="admin-actions">
+                <h4>Действия администратора</h4>
+                <ul>
+                    <li><a href="#" class="admin-action"><i class="fas fa-plus"></i> Добавить новость</a></li>
+                    <li><a href="#" class="admin-action"><i class="fas fa-tag"></i> Редактировать тарифы</a></li>
+                    <li><a href="#" class="admin-action"><i class="fas fa-envelope"></i> Обратная связь</a></li>
+                    <li><a href="#" class="admin-action logout"><i class="fas fa-sign-out-alt"></i> Выйти</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#hero">
+                    <h1>КПУП "Речицаводоканал"</h1>
+                    <p>Вода для Речицы с 1967 года</p>
+                </a>
+            </div>
+            <div class="top-controls">
+                <div class="search-box">
+                    <input type="text" id="site-search" placeholder="Поиск по сайту...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="accessibility-bar">
+                    <button id="accessibility-toggle" class="access-btn" title="Режим для слабовидящих">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <select id="language-switch" class="lang-select">
+                        <option value="ru">Русский</option>
+                        <option value="be">Беларуская</option>
+                    </select>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#hero" class="nav-link">Главная</a>
+                <a href="#services" class="nav-link">Услуги</a>
+                <a href="#about" class="nav-link">О нас</a>
+                <a href="#staff" class="nav-link">Сотрудники</a>
+                <a href="#news" class="nav-link">Новости</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+                <a href="#" class="nav-link admin-link" onclick="toggleAdminPanel(); return false;">
+                    <i class="fas fa-lock"></i> Админ-панель
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Баннер -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h2 class="hero-title">Чистая вода — основа благополучия Речицы</h2>
+            <p class="hero-text">Коммунальное предприятие «Речицаводоканал» обеспечивает надёжное водоснабжение и водоотведение более чем для 80 000 жителей города и района. Мы заботимся о качестве каждой капли и стабильности каждой трубы — с 1967 года и на годы вперёд.</p>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services fade-up">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-headset icon-large"></i>
+                    <h3>Консультации</h3>
+                    <p>Помощь в расчёте платежей, подключении счётчиков и разъяснении нормативов.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-truck icon-large"></i>
+                    <h3>Аварийная служба</h3>
+                    <p>Круглосуточно! Звоните при протечках на ул. Ленина, Советской, Доватора и других.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home icon-large"></i>
+                    <h3>Подключение дома</h3>
+                    <p>Оформим техусловия и подключим ваш дом в Речице или пригороде к водопроводу и канализации.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-invoice icon-large"></i>
+                    <h3>Справки и документы</h3>
+                    <p>Выдадим справку об отсутствии задолженности, технические характеристики и другое.</p>
+                </div>
+                <!-- ✅ ВМЕСТО «ПОДАТЬ ПОКАЗАНИЯ» -->
+                <div class="service-card">
+                    <i class="fas fa-info-circle icon-large"></i>
+                    <h3>Полезная информация</h3>
+                    <p>Правила пользования, нормативы, тарифы и ответы на часто задаваемые вопросы.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-flask icon-large"></i>
+                    <h3>Анализ воды</h3>
+                    <p>Закажите выезд специалиста для проверки качества воды у вас дома в Речице.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about fade-up">
+        <div class="container">
+            <h2 class="section-title">О нас</h2>
+            <div class="about-content">
+                <div class="about-block">
+                    <i class="fas fa-history"></i>
+                    <h3>История</h3>
+                    <p>С 1967 года мы обеспечиваем Речицу чистой водой. Начинали с одной насосной станции — сегодня управляем сетью в 300+ км.</p>
+                </div>
+                <div class="about-block">
+                    <i class="fas fa-industry"></i>
+                    <h3>Инфраструктура</h3>
+                    <p>5 насосных станций, очистные сооружения (30 000 м³/сутки), лаборатория с современным оборудованием.</p>
+                </div>
+                <div class="about-block">
+                    <i class="fas fa-award"></i>
+                    <h3>Достижения</h3>
+                    <p>Лауреат конкурса "Лучшее ЖКХ Беларуси-2025". ISO 9001. Снижение аварийности на 20% за 2 года.</p>
+                </div>
+                <div class="about-block">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Миссия</h3>
+                    <p>Обеспечивать каждую семью в Речице и районах надёжной, безопасной и доступной водой — сегодня и в будущем.</p>
+                </div>
+                <div class="about-block">
+                    <i class="fas fa-hand-holding-water"></i>
+                    <h3>Зона обслуживания</h3>
+                    <p>г. Речица, Брагинский, Лоевский и Хойникский районы — более 80 000 жителей.</p>
+                </div>
+                <div class="about-block">
+                    <i class="fas fa-file-certificate"></i>
+                    <h3>Лицензии</h3>
+                    <p>Лицензия №ВК-247500 на водоснабжение и водоотведение, выдана до 2030 года.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сотрудники -->
+    <section id="staff" class="staff fade-up">
+        <div class="container">
+            <h2 class="section-title">Руководство и подразделения</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <h3>Борисенко И. А.</h3>
+                    <p class="staff-position">Директор</p>
+                    <p><i class="fas fa-phone"></i> 8 (02340) 9-82-13</p>
+                </div>
+                <div class="staff-card">
+                    <h3>Романов С. А.</h3>
+                    <p class="staff-position">Главный инженер</p>
+                    <p><i class="fas fa-phone"></i> 8 (02340) 9-82-11</p>
+                </div>
+                <div class="staff-card">
+                    <h3>Тимощенко В. Н.</h3>
+                    <p class="staff-position">Зам. директора по идеологии</p>
+                    <p><i class="fas fa-phone"></i> 8 (02340) 9-82-15</p>
+                </div>
+                <div class="staff-card">
+                    <h3>Страпко В. Н.</h3>
+                    <p class="staff-position">Главный энергетик</p>
+                    <p><i class="fas fa-phone"></i> 8 (02340) 9-82-57</p>
+                </div>
+                <div class="staff-card">
+                    <h3>Абонентный отдел</h3>
+                    <p class="staff-position">Физ. лица</p>
+                    <p><i class="fas fa-phone"></i> 8 (02340) 9-82-28</p>
+                </div>
+                <div class="staff-card">
+                    <h3>Абонентный отдел</h3>
+                    <p class="staff-position">Юр. лица</p>
+                    <p><i class="fas fa-phone"></i> 8 (02340) 9-82-32</p>
+                </div>
+                <div class="staff-card">
+                    <h3>Аварийная служба</h3>
+                    <p class="staff-position">Круглосуточно</p>
+                    <p><i class="fas fa-phone"></i> 8 (02340) 9-82-17</p>
+                </div>
+                <div class="staff-card">
+                    <h3>Лаборатория</h3>
+                    <p class="staff-position">Контроль качества</p>
+                    <p><i class="fas fa-phone"></i> +375 (29) 108-76-29</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости (БЕЗ КАРТИНОК) -->
+    <section id="news" class="news fade-up">
+        <div class="container">
+            <h2 class="section-title">Новости Речицы</h2>
+            <div class="news-list">
+                <div class="news-item no-image">
+                    <h3>Качество воды в Речице соответствует нормам</h3>
+                    <p>По итогам ежемесячного мониторинга вода в Речице соответствует всем санитарным нормам.</p>
+                    <span class="news-date">10.11.2025</span>
+                </div>
+                <div class="news-item no-image">
+                    <h3>Завершён ремонт на ул. Доватора</h3>
+                    <p>На участке ул. Доватора (от д. 10 до д. 22) заменено 180 метров водопроводных труб.</p>
+                    <span class="news-date">07.11.2025</span>
+                </div>
+                <div class="news-item no-image">
+                    <h3>Модернизация насосной станции №3</h3>
+                    <p>Установлены новые насосы Grundfos. Экономия электроэнергии — 25%.</p>
+                    <span class="news-date">03.11.2025</span>
+                </div>
+                <div class="news-item no-image">
+                    <h3>Новые фильтры на очистных сооружениях</h3>
+                    <p>Внедрена современная система доочистки сточных вод. Снижение взвешенных веществ на 40%.</p>
+                    <span class="news-date">30.10.2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts fade-up">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Адрес</h3>
+                    <p>247500, г. Речица,<br>ул. Доватора, д. 22</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info-rechitsa@gomelvodokanal.by</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>График работы</h3>
+                    <p>Пн–Пт: 08:00–17:00<br>Перерыв: 13:00–14:00<br>Сб–Вс: выходной</p>
+                </div>
+            </div>
+            <!-- ✅ МЕТКА ТОЧНО НА РЕЧИЦАВОДОКАНАЛ (ДОВАТОРА, 22) -->
+            <div class="map-container">
+                <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A9d2d7d6c9c2a4f1b9c0e7f3a5b8d1e0c2a4f1b9c0e7f3a5b8d1e0c2a4f1b9c0e7&source=constructor&ll=30.039050%2C52.333630&z=17&pt=30.039050,52.333630,pm2rdm"
+                    width="100%"
+                    height="420"
+                    frameborder="0"
+                    allowfullscreen
+                    title="Карта: ул. Доватора, 22, Речица — КПУП Речицаводоканал"
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 КПУП "Речицаводоканал". Все права защищены.</p>
+            <p>Служим Речице с заботой о каждом доме и каждой капле воды.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
