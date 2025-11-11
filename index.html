@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Модальное окно -->
     <div class="modal" id="infoModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -18,8 +17,6 @@
             <button class="btn" id="modal-close-btn">Закрыть</button>
         </div>
     </div>
-
-    <!-- Админ-панель -->
     <div id="admin-panel" class="admin-panel hidden">
         <div class="admin-container">
             <span class="close-admin">&times;</span>
@@ -46,9 +43,7 @@
             </div>
         </div>
     </div>
-
-    <!-- Шапка -->
-    <header class="header" id="main-header">
+    <header class="header">
         <div class="container">
             <div class="logo">
                 <a href="#hero">
@@ -84,16 +79,12 @@
             </nav>
         </div>
     </header>
-
-    <!-- Баннер -->
     <section class="hero" id="hero">
         <div class="container">
             <h2 class="hero-title" data-key="hero_title">Чистая вода — основа благополучия Речицы</h2>
             <p class="hero-text" data-key="hero_text">Коммунальное предприятие «Речицаводоканал» обеспечивает надёжное водоснабжение и водоотведение более чем для 80 000 жителей города и района. Мы заботимся о качестве каждой капли и стабильности каждой трубы — с 1967 года и на годы вперёд.</p>
         </div>
     </section>
-
-    <!-- Услуги -->
     <section id="services" class="services fade-up">
         <div class="container">
             <h2 class="section-title" data-key="services_title">Наши услуги</h2>
@@ -118,7 +109,6 @@
                     <h3 data-key="service4_title">Справки и документы</h3>
                     <p data-key="service4_text">Выдадим справку об отсутствии задолженности, технические характеристики и другое.</p>
                 </div>
-                <!-- ✅ ВМЕСТО "ЛИЧНОГО КАБИНЕТА" -->
                 <div class="service-card">
                     <i class="fas fa-info-circle icon-large"></i>
                     <h3 data-key="service5_title">Полезная информация</h3>
@@ -132,8 +122,6 @@
             </div>
         </div>
     </section>
-
-    <!-- О нас -->
     <section id="about" class="about fade-up">
         <div class="container">
             <h2 class="section-title" data-key="about_title">О нас</h2>
@@ -171,8 +159,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Сотрудники -->
     <section id="staff" class="staff fade-up">
         <div class="container">
             <h2 class="section-title" data-key="staff_title">Руководство и подразделения</h2>
@@ -220,28 +206,26 @@
             </div>
         </div>
     </section>
-
-    <!-- Новости (БЕЗ КАРТИНОК, БЕЗ "ЛИЧНОГО КАБИНЕТА") -->
     <section id="news" class="news fade-up">
         <div class="container">
             <h2 class="section-title" data-key="news_title">Новости Речицы</h2>
             <div class="news-list">
-                <div class="news-item">
+                <div class="news-item no-image">
                     <h3 data-key="news1_title">Качество воды в Речице соответствует нормам</h3>
                     <p data-key="news1_text">По итогам ежемесячного мониторинга вода в Речице соответствует всем санитарным нормам.</p>
                     <span class="news-date">10.11.2025</span>
                 </div>
-                <div class="news-item">
+                <div class="news-item no-image">
                     <h3 data-key="news2_title">Завершён ремонт на ул. Доватора</h3>
                     <p data-key="news2_text">На участке ул. Доватора (от д. 10 до д. 22) заменено 180 метров водопроводных труб.</p>
                     <span class="news-date">07.11.2025</span>
                 </div>
-                <div class="news-item">
+                <div class="news-item no-image">
                     <h3 data-key="news3_title">Модернизация насосной станции №3</h3>
                     <p data-key="news3_text">Установлены новые насосы Grundfos. Экономия электроэнергии — 25%.</p>
                     <span class="news-date">03.11.2025</span>
                 </div>
-                <div class="news-item">
+                <div class="news-item no-image">
                     <h3 data-key="news4_title">Новые фильтры на очистных сооружениях</h3>
                     <p data-key="news4_text">Внедрена современная система доочистки сточных вод. Снижение взвешенных веществ на 40%.</p>
                     <span class="news-date">30.10.2025</span>
@@ -249,8 +233,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Контакты -->
     <section id="contacts" class="contacts fade-up">
         <div class="container">
             <h2 class="section-title" data-key="contacts_title">Контакты</h2>
@@ -271,7 +253,6 @@
                     <p data-key="schedule">Пн–Пт: 08:00–17:00<br>Перерыв: 13:00–14:00<br>Сб–Вс: выходной</p>
                 </div>
             </div>
-            <!-- ✅ МЕТКА ПО КООРДИНАТАМ -->
             <div class="map-container">
                 <iframe
                     src="https://yandex.ru/map-widget/v1/?um=constructor%3A9d2d7d6c9c2a4f1b9c0e7f3a5b8d1e0c2a4f1b9c0e7f3a5b8d1e0c2a4f1b9c0e7&source=constructor&ll=30.354972%2C52.380430&z=15&pt=30.354972,52.380430,pm2rdm"
@@ -284,15 +265,12 @@
             </div>
         </div>
     </section>
-
-    <!-- Подвал -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 КПУП "Речицаводоканал". Все права защищены.</p>
             <p data-key="footer_note">Служим Речице с заботой о каждом доме и каждой капле воды.</p>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
