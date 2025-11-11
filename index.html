@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Модальное окно -->
     <div class="modal" id="infoModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -17,6 +18,8 @@
             <button class="btn" id="modal-close-btn">Закрыть</button>
         </div>
     </div>
+
+    <!-- Админ-панель -->
     <div id="admin-panel" class="admin-panel hidden">
         <div class="admin-container">
             <span class="close-admin">&times;</span>
@@ -43,7 +46,9 @@
             </div>
         </div>
     </div>
-    <header class="header">
+
+    <!-- Шапка -->
+    <header class="header" id="main-header">
         <div class="container">
             <div class="logo">
                 <a href="#hero">
@@ -79,12 +84,16 @@
             </nav>
         </div>
     </header>
+
+    <!-- Баннер -->
     <section class="hero" id="hero">
         <div class="container">
             <h2 class="hero-title" data-key="hero_title">Чистая вода — основа благополучия Речицы</h2>
             <p class="hero-text" data-key="hero_text">Коммунальное предприятие «Речицаводоканал» обеспечивает надёжное водоснабжение и водоотведение более чем для 80 000 жителей города и района. Мы заботимся о качестве каждой капли и стабильности каждой трубы — с 1967 года и на годы вперёд.</p>
         </div>
     </section>
+
+    <!-- Услуги -->
     <section id="services" class="services fade-up">
         <div class="container">
             <h2 class="section-title" data-key="services_title">Наши услуги</h2>
@@ -122,83 +131,87 @@
             </div>
         </div>
     </section>
+
+    <!-- О нас -->
     <section id="about" class="about fade-up">
         <div class="container">
             <h2 class="section-title" data-key="about_title">О нас</h2>
-            <div class="about-content">
-                <div class="about-block">
-                    <i class="fas fa-history"></i>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-history icon-large"></i>
                     <h3 data-key="about1_title">История</h3>
                     <p data-key="about1_text">С 1967 года мы обеспечиваем Речицу чистой водой. Начинали с одной насосной станции — сегодня управляем сетью в 300+ км.</p>
                 </div>
-                <div class="about-block">
-                    <i class="fas fa-industry"></i>
+                <div class="service-card">
+                    <i class="fas fa-industry icon-large"></i>
                     <h3 data-key="about2_title">Инфраструктура</h3>
                     <p data-key="about2_text">5 насосных станций, очистные сооружения (30 000 м³/сутки), лаборатория с современным оборудованием.</p>
                 </div>
-                <div class="about-block">
-                    <i class="fas fa-award"></i>
+                <div class="service-card">
+                    <i class="fas fa-award icon-large"></i>
                     <h3 data-key="about3_title">Достижения</h3>
                     <p data-key="about3_text">Лауреат конкурса "Лучшее ЖКХ Беларуси-2025". ISO 9001. Снижение аварийности на 20% за 2 года.</p>
                 </div>
-                <div class="about-block">
-                    <i class="fas fa-bullseye"></i>
+                <div class="service-card">
+                    <i class="fas fa-bullseye icon-large"></i>
                     <h3 data-key="about4_title">Миссия</h3>
                     <p data-key="about4_text">Обеспечивать каждую семью в Речице и районах надёжной, безопасной и доступной водой — сегодня и в будущем.</p>
                 </div>
-                <div class="about-block">
-                    <i class="fas fa-hand-holding-water"></i>
+                <div class="service-card">
+                    <i class="fas fa-hand-holding-water icon-large"></i>
                     <h3 data-key="about5_title">Зона обслуживания</h3>
                     <p data-key="about5_text">г. Речица, Брагинский, Лоевский и Хойникский районы — более 80 000 жителей.</p>
                 </div>
-                <div class="about-block">
-                    <i class="fas fa-file-certificate"></i>
+                <div class="service-card">
+                    <i class="fas fa-file-certificate icon-large"></i>
                     <h3 data-key="about6_title">Лицензии</h3>
                     <p data-key="about6_text">Лицензия №ВК-247500 на водоснабжение и водоотведение, выдана до 2030 года.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Сотрудники -->
     <section id="staff" class="staff fade-up">
         <div class="container">
             <h2 class="section-title" data-key="staff_title">Руководство и подразделения</h2>
-            <div class="staff-grid">
-                <div class="staff-card">
+            <div class="services-grid">
+                <div class="service-card">
                     <h3>Борисенко И. А.</h3>
                     <p class="staff-position" data-key="director">Директор</p>
                     <p><i class="fas fa-phone"></i> 8 (02340) 9-82-13</p>
                 </div>
-                <div class="staff-card">
+                <div class="service-card">
                     <h3>Романов С. А.</h3>
                     <p class="staff-position" data-key="chief_engineer">Главный инженер</p>
                     <p><i class="fas fa-phone"></i> 8 (02340) 9-82-11</p>
                 </div>
-                <div class="staff-card">
+                <div class="service-card">
                     <h3>Тимощенко В. Н.</h3>
                     <p class="staff-position">Зам. директора по идеологии</p>
                     <p><i class="fas fa-phone"></i> 8 (02340) 9-82-15</p>
                 </div>
-                <div class="staff-card">
+                <div class="service-card">
                     <h3>Страпко В. Н.</h3>
                     <p class="staff-position">Главный энергетик</p>
                     <p><i class="fas fa-phone"></i> 8 (02340) 9-82-57</p>
                 </div>
-                <div class="staff-card">
+                <div class="service-card">
                     <h3>Абонентный отдел</h3>
                     <p class="staff-position">Физ. лица</p>
                     <p><i class="fas fa-phone"></i> 8 (02340) 9-82-28</p>
                 </div>
-                <div class="staff-card">
+                <div class="service-card">
                     <h3>Абонентный отдел</h3>
                     <p class="staff-position">Юр. лица</p>
                     <p><i class="fas fa-phone"></i> 8 (02340) 9-82-32</p>
                 </div>
-                <div class="staff-card">
+                <div class="service-card">
                     <h3>Аварийная служба</h3>
                     <p class="staff-position" data-key="emergency">Круглосуточно</p>
                     <p><i class="fas fa-phone"></i> 8 (02340) 9-82-17</p>
                 </div>
-                <div class="staff-card">
+                <div class="service-card">
                     <h3>Лаборатория</h3>
                     <p class="staff-position" data-key="lab">Контроль качества</p>
                     <p><i class="fas fa-phone"></i> +375 (29) 108-76-29</p>
@@ -206,26 +219,28 @@
             </div>
         </div>
     </section>
+
+    <!-- Новости -->
     <section id="news" class="news fade-up">
         <div class="container">
             <h2 class="section-title" data-key="news_title">Новости Речицы</h2>
             <div class="news-list">
-                <div class="news-item no-image">
+                <div class="news-item">
                     <h3 data-key="news1_title">Качество воды в Речице соответствует нормам</h3>
                     <p data-key="news1_text">По итогам ежемесячного мониторинга вода в Речице соответствует всем санитарным нормам.</p>
                     <span class="news-date">10.11.2025</span>
                 </div>
-                <div class="news-item no-image">
+                <div class="news-item">
                     <h3 data-key="news2_title">Завершён ремонт на ул. Доватора</h3>
                     <p data-key="news2_text">На участке ул. Доватора (от д. 10 до д. 22) заменено 180 метров водопроводных труб.</p>
                     <span class="news-date">07.11.2025</span>
                 </div>
-                <div class="news-item no-image">
+                <div class="news-item">
                     <h3 data-key="news3_title">Модернизация насосной станции №3</h3>
                     <p data-key="news3_text">Установлены новые насосы Grundfos. Экономия электроэнергии — 25%.</p>
                     <span class="news-date">03.11.2025</span>
                 </div>
-                <div class="news-item no-image">
+                <div class="news-item">
                     <h3 data-key="news4_title">Новые фильтры на очистных сооружениях</h3>
                     <p data-key="news4_text">Внедрена современная система доочистки сточных вод. Снижение взвешенных веществ на 40%.</p>
                     <span class="news-date">30.10.2025</span>
@@ -233,6 +248,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Контакты -->
     <section id="contacts" class="contacts fade-up">
         <div class="container">
             <h2 class="section-title" data-key="contacts_title">Контакты</h2>
@@ -265,12 +282,15 @@
             </div>
         </div>
     </section>
+
+    <!-- Подвал -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 КПУП "Речицаводоканал". Все права защищены.</p>
             <p data-key="footer_note">Служим Речице с заботой о каждом доме и каждой капле воды.</p>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
