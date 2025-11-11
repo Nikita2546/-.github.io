@@ -1,4 +1,3 @@
-// === Переключение языка ===
 const translations = {
     ru: {
         nav_title: 'КПУП "Речицаводоканал"',
@@ -137,7 +136,6 @@ const translations = {
         admin_logout: "Выйсці"
     }
 };
-
 function switchLanguage(lang) {
     document.documentElement.lang = lang;
     document.getElementById('html-root').setAttribute('lang', lang);
@@ -153,43 +151,23 @@ function switchLanguage(lang) {
     });
     localStorage.setItem('preferredLanguage', lang);
 }
-
 document.getElementById('language-switch').addEventListener('change', (e) => {
     switchLanguage(e.target.value);
 });
-
 document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('preferredLanguage') || 'ru';
     document.getElementById('language-switch').value = saved;
     switchLanguage(saved);
 });
-
-// === Умная шапка ===
-let lastScrollTop = 0;
-const header = document.getElementById('main-header');
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-        header.classList.add('hidden');
-    } else {
-        header.classList.remove('hidden');
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
-
-// === Режим слабовидящих ===
 document.getElementById('accessibility-toggle').addEventListener('click', () => {
     document.body.classList.toggle('accessibility-mode');
     localStorage.setItem('accessibilityMode', document.body.classList.contains('accessibility-mode'));
 });
-
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('accessibilityMode') === 'true') {
         document.body.classList.add('accessibility-mode');
     }
 });
-
-// === Поиск ===
 function performSearch() {
     const query = document.getElementById('site-search').value.trim().toLowerCase();
     if (!query) return;
@@ -211,19 +189,16 @@ document.getElementById('search-btn').addEventListener('click', performSearch);
 document.getElementById('site-search').addEventListener('keypress', e => {
     if (e.key === 'Enter') performSearch();
 });
-
-// === Плавная прокрутка ===
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+            const offset = window.innerWidth < 768 ? 70 : 100;
+            window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
         }
     });
 });
-
-// === Анимация при прокрутке ===
 function animateOnScroll() {
     document.querySelectorAll('.fade-up').forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight - 100) {
@@ -233,16 +208,9 @@ function animateOnScroll() {
 }
 window.addEventListener('scroll', animateOnScroll);
 document.addEventListener('DOMContentLoaded', animateOnScroll);
-
-// === Админ-панель ===
 function toggleAdminPanel() {
     const panel = document.getElementById('admin-panel');
     panel.classList.toggle('hidden');
-    if (panel.classList.contains('hidden')) {
-        document.getElementById('admin-login-form').reset();
-        document.getElementById('admin-actions').classList.add('hidden');
-        document.getElementById('admin-login-form').classList.remove('hidden');
-    }
 }
 document.getElementById('admin-login-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -256,18 +224,6 @@ document.getElementById('admin-login-form').addEventListener('submit', function(
         showModal('Ошибка входа', 'Неверный логин или пароль.');
     }
 });
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('logout')) {
-        e.preventDefault();
-        document.getElementById('admin-actions').classList.add('hidden');
-        document.getElementById('admin-login-form').classList.remove('hidden');
-        document.getElementById('admin-login-form').reset();
-        toggleAdminPanel();
-        showModal('Выход', 'Вы успешно вышли из системы.');
-    }
-});
-
-// === Модальное окно ===
 function showModal(title, text) {
     const modal = document.getElementById('infoModal');
     document.getElementById('modalTitle').innerText = title;
@@ -282,14 +238,20 @@ document.querySelector('.close-modal').addEventListener('click', closeModal);
 document.addEventListener('click', e => {
     if (e.target === document.getElementById('infoModal')) closeModal();
 });
-
-// === Активная ссылка в навигации ===
+document.querySelectorAll('.logout').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('admin-actions').classList.add('hidden');
+        document.getElementById('admin-login-form').classList.remove('hidden');
+        document.getElementById('admin-login-form').reset();
+    });
+});
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     function setActiveLink() {
         let current = '';
         document.querySelectorAll('section').forEach(sec => {
-            const top = sec.offsetTop - 100;
+            const top = sec.offsetTop - 120;
             if (window.scrollY >= top) current = sec.id;
         });
         navLinks.forEach(link => {
