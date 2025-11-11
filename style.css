@@ -12,6 +12,8 @@
     --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     --font-main: 'Segoe UI', system-ui, sans-serif;
 }
+
+/* Режим для слабовидящих */
 body.accessibility-mode {
     font-size: 120%;
     color: #000;
@@ -27,11 +29,13 @@ body.accessibility-mode .hero,
 body.accessibility-mode .footer {
     filter: none;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: var(--font-main);
     line-height: 1.6;
@@ -39,44 +43,53 @@ body {
     background-color: #fff;
     overflow-x: hidden;
     font-size: 16px;
+    padding-top: 72px;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 16px;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
+/* УМНАЯ ШАПКА */
 .header {
     background: var(--primary);
     color: white;
-    padding: 1rem 0;
-    position: sticky;
+    padding: 0.8rem 0;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+}
+.header.hidden {
+    transform: translateY(-100%);
 }
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 .logo a {
     text-decoration: none;
     color: white;
 }
 .logo h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
 }
 .logo p {
     font-size: 0.85rem;
     opacity: 0.9;
-    margin-top: 4px;
 }
 .top-controls {
     display: flex;
@@ -88,28 +101,29 @@ html {
     display: flex;
 }
 #site-search {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border: none;
-    border-radius: 30px 0 0 30px;
-    width: 140px;
-    font-size: 0.9rem;
+    border-radius: 20px 0 0 20px;
+    width: 130px;
+    font-size: 0.85rem;
     outline: none;
 }
 #search-btn {
     background: var(--accent);
     color: var(--primary);
     border: none;
-    padding: 0 14px;
-    border-radius: 0 30px 30px 0;
+    padding: 0 10px;
+    border-radius: 0 20px 20px 0;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.85rem;
 }
 .access-btn {
     background: rgba(255,255,255,0.2);
     border: none;
     color: white;
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -123,11 +137,11 @@ html {
     padding: 0.3rem 0.5rem;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 .nav {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
     justify-content: flex-end;
     margin-left: auto;
@@ -135,11 +149,9 @@ html {
 .nav-link {
     color: white;
     text-decoration: none;
-    padding: 0.5rem 12px;
+    padding: 0.4rem 10px;
     border-radius: 6px;
-    transition: var(--transition);
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     position: relative;
 }
 .nav-link::after {
@@ -150,39 +162,38 @@ html {
     width: 0;
     height: 2px;
     background: var(--accent);
-    transition: var(--transition);
     transform: translateX(-50%);
+    transition: width 0.3s ease;
 }
-.nav-link:hover,
-.nav-link.active {
-    background: rgba(255,255,255,0.12);
-}
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-link:hover::after {
     width: 80%;
 }
+
+/* БАННЕР */
 .hero {
-    background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 40, 80, 0.9)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 40, 80, 0.9));
     color: white;
-    padding: 6rem 0;
+    padding: 5rem 0 4rem;
     text-align: center;
 }
 .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 .hero-text {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
     opacity: 0.95;
     line-height: 1.6;
 }
+
+/* ОБЩИЕ СТИЛИ */
 .section-title {
     text-align: center;
-    margin: 3rem 0 2.5rem;
-    font-size: 2rem;
+    margin: 2.8rem 0 2.2rem;
+    font-size: 1.9rem;
     color: var(--primary);
     position: relative;
     font-weight: 700;
@@ -207,10 +218,12 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Секции */
 .services,
 .about,
 .contacts {
-    padding: 4.5rem 0;
+    padding: 4rem 0;
     background: var(--light);
 }
 .about,
@@ -218,14 +231,16 @@ html {
 .staff {
     background: var(--bg-light);
 }
+
+/* Карточки (единый стиль для услуг, "о нас", "сотрудников") */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.8rem;
 }
 .service-card {
     background: white;
-    padding: 2rem;
+    padding: 1.8rem;
     border-radius: 16px;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -248,110 +263,42 @@ html {
     transform: scaleY(1);
 }
 .service-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
 .icon-large {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     color: var(--primary);
-    margin-bottom: 1.2rem;
-    transition: transform 0.3s;
+    margin-bottom: 1rem;
 }
 .service-card h3 {
     color: var(--primary);
     margin-bottom: 0.8rem;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 700;
 }
-.about-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-.about-block {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-.about-block::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--accent);
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.4s ease;
-}
-.about-block:hover::before {
-    transform: scaleY(1);
-}
-.about-block:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-}
-.about-block h3 {
-    color: var(--primary);
-    margin-bottom: 0.8rem;
-    font-size: 1.35rem;
-    font-weight: 700;
-}
-.staff-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.6rem;
-}
-.staff-card {
-    background: white;
-    padding: 1.6rem;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    min-height: 150px;
-}
-.staff-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-.staff-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.4rem;
-    color: var(--primary);
-}
+
+/* Сотрудники — стиль как у карточек */
 .staff-position {
     font-size: 0.95rem;
     color: var(--accent);
     font-weight: 600;
     margin-bottom: 0.6rem;
 }
-.staff-card p {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-.staff-card i {
-    width: 18px;
-    text-align: center;
-    color: var(--primary);
-}
+
+/* Новости */
 .news {
-    padding: 4.5rem 0;
+    padding: 4rem 0;
 }
 .news-list {
     display: grid;
-    gap: 1.8rem;
+    gap: 1.6rem;
     max-width: 850px;
     margin: 0 auto;
 }
 .news-item {
     background: white;
-    padding: 1.8rem;
+    padding: 1.6rem;
     border-radius: 16px;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -363,7 +310,7 @@ html {
 .news-item h3 {
     color: var(--primary);
     margin: 0 0 0.8rem;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 700;
 }
 .news-item p {
@@ -374,22 +321,24 @@ html {
 .news-date {
     display: block;
     color: var(--accent);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     background: rgba(212, 175, 55, 0.1);
     padding: 0.2rem 0.8rem;
     border-radius: 20px;
     width: fit-content;
 }
+
+/* Контакты */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.8rem;
     margin-bottom: 2rem;
 }
 .contact-card {
     background: white;
-    padding: 2rem;
+    padding: 1.8rem;
     border-radius: 16px;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -412,18 +361,20 @@ html {
     transform: scaleY(1);
 }
 .contact-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
 .contact-card h3 {
     color: var(--primary);
     margin-bottom: 0.8rem;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 700;
 }
+
+/* Карта */
 .map-container {
     width: 100%;
-    height: 360px;
+    height: 400px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -434,6 +385,8 @@ html {
     height: 100%;
     border: none;
 }
+
+/* Подвал */
 .footer {
     background: var(--primary);
     color: white;
@@ -445,6 +398,8 @@ html {
     margin: 0.3rem 0;
     opacity: 0.9;
 }
+
+/* Админ-панель */
 .admin-panel {
     background: rgba(0,0,0,0.92);
     position: fixed;
@@ -456,7 +411,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 20px;
 }
 .admin-panel.hidden {
     display: none;
@@ -542,6 +497,8 @@ html {
     border-color: var(--primary);
     transform: translateY(-2px);
 }
+
+/* Модальное окно */
 .modal {
     position: fixed;
     top: 0;
@@ -566,7 +523,7 @@ html {
     padding: 2rem;
     border-radius: 18px;
     max-width: 500px;
-    width: 92%;
+    width: 90%;
     text-align: center;
     box-shadow: 0 10px 40px rgba(0,0,0,0.25);
     position: relative;
@@ -599,7 +556,7 @@ html {
     color: var(--primary);
 }
 .btn {
-    padding: 10px 22px;
+    padding: 8px 20px;
     background: var(--primary);
     color: white;
     border: none;
@@ -613,93 +570,45 @@ html {
     background: var(--primary-light);
     transform: translateY(-2px);
 }
+
+/* Адаптив */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 14px;
+    body {
+        padding-top: 66px;
+        font-size: 15px;
     }
     .header {
-        padding: 0.8rem 0;
+        padding: 0.6rem 0;
     }
     .logo h1 {
-        font-size: 1.45rem;
-    }
-    .top-controls {
-        gap: 6px;
+        font-size: 1.35rem;
     }
     #site-search {
-        width: 120px;
-        font-size: 0.85rem;
-        height: 32px;
-        padding: 0.4rem 0.8rem;
-    }
-    #search-btn {
-        width: 32px;
-        padding: 0 6px;
-        font-size: 0.9rem;
-    }
-    .access-btn {
-        width: 30px;
-        height: 30px;
-    }
-    .lang-select {
-        padding: 0.25rem 0.45rem;
-        font-size: 0.85rem;
-    }
-    .header .container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .logo {
-        text-align: center;
-        margin-bottom: 12px;
-    }
-    .nav {
-        justify-content: center;
-        margin-left: 0;
-        gap: 6px;
+        width: 110px;
+        font-size: 0.8rem;
     }
     .nav-link {
-        padding: 0.45rem 10px;
-        font-size: 0.9rem;
+        padding: 0.4rem 8px;
+        font-size: 0.85rem;
     }
     .hero {
-        padding: 5rem 0 4.5rem;
+        padding: 4rem 0 3rem;
     }
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
     .hero-text {
-        font-size: 1.05rem;
-        padding: 0 8px;
+        font-size: 1rem;
+        padding: 0 10px;
     }
     .section-title {
-        font-size: 1.75rem;
-    }
-    .services-grid,
-    .about-content,
-    .staff-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
+        font-size: 1.7rem;
     }
     .map-container {
         height: 280px;
     }
-    .admin-container {
-        padding: 1.8rem;
+    .services-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
-    .admin-title {
-        font-size: 1.45rem;
-    }
-    .modal-content {
-        padding: 1.8rem;
-    }
-}
-.news-item.no-image .news-image {
-    display: none;
-}
-.news-item.no-image {
-    padding: 1.8rem;
-}
-.news-item.no-image h3 {
-    margin-top: 0;
 }
