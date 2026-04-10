@@ -116,15 +116,15 @@
         <button class="mob-close" id="mob-close"><i class="fas fa-times"></i></button>
     </div>
     <div class="mob-nav-links">
-        <a href="#hero"     class="mob-link"><i class="fas fa-home"></i> Главная</a>
-        <a href="#services" class="mob-link"><i class="fas fa-concierge-bell"></i> Услуги</a>
-        <a href="#tariffs"  class="mob-link"><i class="fas fa-tag"></i> Тарифы</a>
-        <a href="#quality"  class="mob-link"><i class="fas fa-flask"></i> Качество воды</a>
-        <a href="#about"    class="mob-link"><i class="fas fa-building"></i> О предприятии</a>
-        <a href="#staff"    class="mob-link"><i class="fas fa-users"></i> Руководство</a>
-        <a href="#news"     class="mob-link"><i class="fas fa-newspaper"></i> Новости</a>
-        <a href="#apply"    class="mob-link"><i class="fas fa-file-alt"></i> Подать заявку</a>
-        <a href="#contacts" class="mob-link"><i class="fas fa-phone"></i> Контакты</a>
+        <a href="#hero"     class="mob-link" id="mnl-home"><i class="fas fa-home"></i> Главная</a>
+        <a href="#services" class="mob-link" id="mnl-svc"><i class="fas fa-concierge-bell"></i> Услуги</a>
+        <a href="#tariffs"  class="mob-link" id="mnl-tar"><i class="fas fa-tag"></i> Тарифы</a>
+        <a href="#quality"  class="mob-link" id="mnl-qual"><i class="fas fa-flask"></i> Качество воды</a>
+        <a href="#about"    class="mob-link" id="mnl-about"><i class="fas fa-building"></i> О предприятии</a>
+        <a href="#staff"    class="mob-link" id="mnl-staff"><i class="fas fa-users"></i> Руководство</a>
+        <a href="#news"     class="mob-link" id="mnl-news"><i class="fas fa-newspaper"></i> Новости</a>
+        <a href="#apply"    class="mob-link" id="mnl-apply"><i class="fas fa-file-alt"></i> Подать заявку</a>
+        <a href="#contacts" class="mob-link" id="mnl-ct"><i class="fas fa-phone"></i> Контакты</a>
         <div class="mob-divider"></div>
         <a href="tel:80234098217" class="mob-link emerg"><i class="fas fa-phone-alt"></i> Аварийная: 9-82-17</a>
     </div>
@@ -148,10 +148,10 @@
                 </div>
             </div>
             <div class="hero-stats">
-                <div class="hs"><div class="hs-num">80K+</div><div class="hs-lbl">Жителей</div></div>
-                <div class="hs"><div class="hs-num">300+</div><div class="hs-lbl">км сетей</div></div>
-                <div class="hs"><div class="hs-num">57</div><div class="hs-lbl">лет работы</div></div>
-                <div class="hs"><div class="hs-num">24/7</div><div class="hs-lbl">Аварийная</div></div>
+                <div class="hs"><div class="hs-num hs-num-1">80K+</div><div class="hs-lbl hs-lbl-1">Жителей</div></div>
+                <div class="hs"><div class="hs-num hs-num-2">300+</div><div class="hs-lbl hs-lbl-2">км сетей</div></div>
+                <div class="hs"><div class="hs-num hs-num-3">57</div><div class="hs-lbl hs-lbl-3">лет работы</div></div>
+                <div class="hs"><div class="hs-num hs-num-4">24/7</div><div class="hs-lbl hs-lbl-4">Аварийная</div></div>
             </div>
         </div>
     </div>
@@ -171,75 +171,75 @@
             <p class="sh-desc">Полный спектр услуг в сфере водоснабжения и водоотведения для жителей Речицы</p>
         </div>
         <div class="cg cga">
-            <div class="card" style="cursor:pointer" onclick="showSvc('consultation')">
+            <div class="card svc-card" data-svc="1" style="cursor:pointer" onclick="showSvc('consultation')">
                 <div class="card-bar"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-headset"></i></div>
-                    <h3>Консультации</h3>
-                    <p>Помощь в расчёте платежей, подключении счётчиков и разъяснении нормативов.</p>
+                    <h3 class="svc-h">Консультации</h3>
+                    <p class="svc-t">Помощь в расчёте платежей, подключении счётчиков и разъяснении нормативов.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
-            <div class="card" style="cursor:pointer" onclick="showSvc('emergency')">
+            <div class="card svc-card" data-svc="2" style="cursor:pointer" onclick="showSvc('emergency')">
                 <div class="card-bar red"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-truck"></i></div>
-                    <h3>Аварийная служба</h3>
-                    <p>Круглосуточно! Устранение протечек и аварий на водопроводных и канализационных сетях.</p>
+                    <h3 class="svc-h">Аварийная служба</h3>
+                    <p class="svc-t">Круглосуточно! Устранение протечек и аварий на водопроводных и канализационных сетях.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
-            <div class="card" style="cursor:pointer" onclick="showSvc('connection')">
+            <div class="card svc-card" data-svc="3" style="cursor:pointer" onclick="showSvc('connection')">
                 <div class="card-bar"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-home"></i></div>
-                    <h3>Подключение дома</h3>
-                    <p>Оформим техусловия и подключим ваш дом к водопроводу и канализации.</p>
+                    <h3 class="svc-h">Подключение дома</h3>
+                    <p class="svc-t">Оформим техусловия и подключим ваш дом к водопроводу и канализации.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
-            <div class="card" style="cursor:pointer" onclick="showSvc('docs')">
+            <div class="card svc-card" data-svc="4" style="cursor:pointer" onclick="showSvc('docs')">
                 <div class="card-bar"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-file-invoice"></i></div>
-                    <h3>Справки и документы</h3>
-                    <p>Справка об отсутствии задолженности, технические условия и другие документы.</p>
+                    <h3 class="svc-h">Справки и документы</h3>
+                    <p class="svc-t">Справка об отсутствии задолженности, технические условия и другие документы.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
-            <div class="card" style="cursor:pointer" onclick="showSvc('counter')">
+            <div class="card svc-card" data-svc="5" style="cursor:pointer" onclick="showSvc('counter')">
                 <div class="card-bar"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-tachometer-alt"></i></div>
-                    <h3>Поверка счётчиков</h3>
-                    <p>Метрологическая поверка и замена водомеров у вас дома без очередей.</p>
+                    <h3 class="svc-h">Поверка счётчиков</h3>
+                    <p class="svc-t">Метрологическая поверка и замена водомеров у вас дома без очередей.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
-            <div class="card" style="cursor:pointer" onclick="showSvc('analysis')">
+            <div class="card svc-card" data-svc="6" style="cursor:pointer" onclick="showSvc('analysis')">
                 <div class="card-bar green"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-flask"></i></div>
-                    <h3>Анализ воды</h3>
-                    <p>Выезд специалиста-лаборанта для проверки качества воды в вашем доме.</p>
+                    <h3 class="svc-h">Анализ воды</h3>
+                    <p class="svc-t">Выезд специалиста-лаборанта для проверки качества воды в вашем доме.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
-            <div class="card" style="cursor:pointer" onclick="showSvc('debt')">
+            <div class="card svc-card" data-svc="7" style="cursor:pointer" onclick="showSvc('debt')">
                 <div class="card-bar"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-credit-card"></i></div>
-                    <h3>Оплата и задолженность</h3>
-                    <p>Проверить задолженность и оплатить услуги через ЕРИП, кассу или по e-mail.</p>
+                    <h3 class="svc-h">Оплата и задолженность</h3>
+                    <p class="svc-t">Проверить задолженность и оплатить услуги через ЕРИП, кассу или по e-mail.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
-            <div class="card" style="cursor:pointer" onclick="showSvc('sewage')">
+            <div class="card svc-card" data-svc="8" style="cursor:pointer" onclick="showSvc('sewage')">
                 <div class="card-bar"></div>
                 <div class="card-body">
                     <div class="card-ico"><i class="fas fa-water"></i></div>
-                    <h3>Водоотведение</h3>
-                    <p>Прочистка засоров, гидропромывка, откачка септиков и обслуживание сетей.</p>
+                    <h3 class="svc-h">Водоотведение</h3>
+                    <p class="svc-t">Прочистка засоров, гидропромывка, откачка септиков и обслуживание сетей.</p>
                     <div class="svc-more"><i class="fas fa-arrow-right"></i> Подробнее</div>
                 </div>
             </div>
@@ -256,21 +256,21 @@
             <p class="sh-desc">Актуальные тарифы на водоснабжение и водоотведение для населения и организаций г. Речица</p>
         </div>
         <div class="tariff-tabs">
-            <button class="tariff-tab on" onclick="switchTariff('pop', this)">Население</button>
-            <button class="tariff-tab" onclick="switchTariff('org', this)">Организации</button>
-            <button class="tariff-tab" onclick="switchTariff('conn', this)">Подключение и услуги</button>
+            <button id="tab-pop" class="tariff-tab on" onclick="switchTariff('pop', this)">Население</button>
+            <button id="tab-org" class="tariff-tab" onclick="switchTariff('org', this)">Организации</button>
+            <button id="tab-conn" class="tariff-tab" onclick="switchTariff('conn', this)">Подключение и услуги</button>
         </div>
         <!-- НАСЕЛЕНИЕ (из БД) -->
         <div class="tariff-pane on" id="tp-pop">
             <div class="tbl-wrap">
                 <table class="tbl">
                     <thead>
-                        <tr><th>Услуга</th><th>Единица</th><th>Тариф (полный)</th><th>Субсидируемый</th></tr>
+                        <tr><th class="tbl-col-service">Услуга</th><th class="tbl-col-unit">Единица</th><th class="tbl-col-price">Тариф (полный)</th><th class="tbl-col-subsidy">Субсидируемый</th></tr>
                     </thead>
                     <tbody id="tp-pop-body"></tbody>
                 </table>
             </div>
-            <div class="tariff-note">
+            <div class="tariff-note" id="tariff-note-pop">
                 <i class="fas fa-info-circle"></i> Субсидируемый тариф — в пределах нормы потребления для населения. Сверх нормы — полный тариф. Тарифы установлены решением Речицкого райисполкома.
             </div>
         </div>
@@ -325,27 +325,27 @@
                 <div class="q-list" id="q-list"></div>
                 <div class="q-updated">
                     <i class="fas fa-sync-alt" style="color:var(--success)"></i>
-                    Данные обновлены: <strong id="quality-date">—</strong> &nbsp;|&nbsp; Соответствует СТБ 1188-99
+                    <span id="quality-updated-label">Данные обновлены:</span> <strong id="quality-date">—</strong> &nbsp;|&nbsp; <span id="quality-std-label">Соответствует СТБ 1188-99</span>
                 </div>
             </div>
             <div class="q-labs">
                 <div class="lab-card">
-                    <h4><i class="fas fa-microscope" style="color:var(--primary);margin-right:7px"></i>Производственная лаборатория</h4>
-                    <p>Аккредитованная лаборатория. Ежемесячно проводится более 500 анализов по 32 показателям.</p>
+                    <h4><i class="fas fa-microscope" style="color:var(--primary);margin-right:7px"></i><span id="lab1-title">Производственная лаборатория</span></h4>
+                    <p id="lab1-text">Аккредитованная лаборатория. Ежемесячно проводится более 500 анализов по 32 показателям.</p>
                     <button class="btn btn-p btn-sm" onclick="showModal('Лаборатория','Лаборатория аккредитована Госстандартом РБ. Проводим анализы питьевой воды по микробиологическим, химическим и органолептическим показателям.<br><br>Записаться на анализ: <a href=\'tel:+375291087629\' style=\'color:var(--primary)\'>+375 (29) 108-76-29</a>')">
                         <i class="fas fa-phone"></i> Записаться
                     </button>
                 </div>
                 <div class="lab-card">
-                    <h4><i class="fas fa-certificate" style="color:var(--primary);margin-right:7px"></i>Санитарный паспорт</h4>
-                    <p>Санитарный паспорт на питьевую воду обновляется ежеквартально. Подтверждает соответствие нормам.</p>
+                    <h4><i class="fas fa-certificate" style="color:var(--primary);margin-right:7px"></i><span id="lab2-title">Санитарный паспорт</span></h4>
+                    <p id="lab2-text">Санитарный паспорт на питьевую воду обновляется ежеквартально. Подтверждает соответствие нормам.</p>
                     <button class="btn btn-o btn-sm" onclick="showModal('Санитарный паспорт','Санитарный паспорт на питьевую воду актуален до 31.12.2026.<br>Регистрационный номер: СП-247500-2024-4.<br>Выдан ГУ «Речицкий зональный ЦГЭ».')">
                         <i class="fas fa-info-circle"></i> Сведения
                     </button>
                 </div>
                 <div class="lab-card">
-                    <h4><i class="fas fa-tint" style="color:var(--primary);margin-right:7px"></i>Источники водоснабжения</h4>
-                    <p>Речица снабжается из 12 артезианских скважин глубиной 120–180 м. Подземный горизонт обеспечивает высокую защищённость.</p>
+                    <h4><i class="fas fa-tint" style="color:var(--primary);margin-right:7px"></i><span id="lab3-title">Источники водоснабжения</span></h4>
+                    <p id="lab3-text">Речица снабжается из 12 артезианских скважин глубиной 120–180 м. Подземный горизонт обеспечивает высокую защищённость.</p>
                     <button class="btn btn-o btn-sm" onclick="showModal('Источники водоснабжения','Водоснабжение г. Речица осуществляется из 12 артезианских скважин юрского водоносного горизонта глубиной 120–180 м. Зоны санитарной охраны 1 и 2 пояса установлены согласно СанПиН.')">
                         <i class="fas fa-map-marker-alt"></i> Подробнее
                     </button>
@@ -361,40 +361,40 @@
         <div class="about-grid">
             <div class="about-txt">
                 <div class="sh-tag" style="margin-bottom:14px"><i class="fas fa-building"></i> О предприятии</div>
-                <h3>КПУП «Речицаводоканал» — надёжный поставщик воды с 1967 года</h3>
-                <p>Коммунальное производственное унитарное предприятие «Речицаводоканал» является основным оператором системы водоснабжения и канализации в Речице и прилегающих районах.</p>
-                <p>Мы обеспечиваем бесперебойную подачу качественной питьевой воды, своевременный приём и очистку сточных вод, содержание и развитие инфраструктуры в интересах 80 000+ жителей.</p>
+                <h3 id="about-h3">КПУП «Речицаводоканал» — надёжный поставщик воды с 1967 года</h3>
+                <p id="about-p1">Коммунальное производственное унитарное предприятие «Речицаводоканал» является основным оператором системы водоснабжения и канализации в Речице и прилегающих районах.</p>
+                <p id="about-p2">Мы обеспечиваем бесперебойную подачу качественной питьевой воды, своевременный приём и очистку сточных вод, содержание и развитие инфраструктуры в интересах 80 000+ жителей.</p>
                 <div class="about-feats">
                     <div class="about-feat">
                         <div class="af-ico"><i class="fas fa-award"></i></div>
                         <div class="af-txt">
-                            <strong>Лауреат «Лучшее ЖКХ Беларуси-2025»</strong>
-                            <span>Победитель республиканского конкурса, номинация «Водоснабжение»</span>
+                            <strong id="feat1-title">Лауреат «Лучшее ЖКХ Беларуси-2025»</strong>
+                            <span id="feat1-text">Победитель республиканского конкурса, номинация «Водоснабжение»</span>
                         </div>
                     </div>
                     <div class="about-feat">
                         <div class="af-ico"><i class="fas fa-certificate"></i></div>
                         <div class="af-txt">
-                            <strong>Сертификат ISO 9001:2015</strong>
-                            <span>Система менеджмента качества подтверждена международным стандартом</span>
+                            <strong id="feat2-title">Сертификат ISO 9001:2015</strong>
+                            <span id="feat2-text">Система менеджмента качества подтверждена международным стандартом</span>
                         </div>
                     </div>
                     <div class="about-feat">
                         <div class="af-ico"><i class="fas fa-leaf"></i></div>
                         <div class="af-txt">
-                            <strong>Экологическая программа 2024–2026</strong>
-                            <span>Снижение энергопотребления на 18%, потерь воды — на 15%</span>
+                            <strong id="feat3-title">Экологическая программа 2024–2026</strong>
+                            <span id="feat3-text">Снижение энергопотребления на 18%, потерь воды — на 15%</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="about-stats">
-                <div class="as-card"><div class="as-num">300<sup>+</sup></div><div class="as-lbl">км водопровода</div></div>
-                <div class="as-card"><div class="as-num">30<sup>K</sup></div><div class="as-lbl">м³/сут. мощность</div></div>
-                <div class="as-card"><div class="as-num">5</div><div class="as-lbl">насосных станций</div></div>
-                <div class="as-card"><div class="as-num">80<sup>K</sup></div><div class="as-lbl">жителей в зоне</div></div>
-                <div class="as-card"><div class="as-num">12</div><div class="as-lbl">арт. скважин</div></div>
-                <div class="as-card"><div class="as-num">250<sup>+</sup></div><div class="as-lbl">сотрудников</div></div>
+                <div class="as-card"><div class="as-num">300<sup>+</sup></div><div class="as-lbl" id="stat1-lbl">км водопровода</div></div>
+                <div class="as-card"><div class="as-num">30<sup>K</sup></div><div class="as-lbl" id="stat2-lbl">м³/сут. мощность</div></div>
+                <div class="as-card"><div class="as-num">5</div><div class="as-lbl" id="stat3-lbl">насосных станций</div></div>
+                <div class="as-card"><div class="as-num">80<sup>K</sup></div><div class="as-lbl" id="stat4-lbl">жителей в зоне</div></div>
+                <div class="as-card"><div class="as-num">12</div><div class="as-lbl" id="stat5-lbl">арт. скважин</div></div>
+                <div class="as-card"><div class="as-num">250<sup>+</sup></div><div class="as-lbl" id="stat6-lbl">сотрудников</div></div>
             </div>
         </div>
     </div>
@@ -406,18 +406,18 @@
         <div class="sh">
             <div class="sh-tag"><i class="fas fa-users"></i> Коллектив</div>
             <h2 class="sh-title" data-key="staff_title">Руководство и отделы</h2>
-            <p class="sh-desc">Нажмите на аватар, чтобы загрузить фото сотрудника (только в режиме просмотра)</p>
+            
         </div>
         <div class="cg cg4">
 
             <div class="card">
                 <div class="card-bar"></div>
                 <div class="staff-card">
-                    <div class="staff-av" id="staff-av-1" onclick="uploadStaffPhoto(1)" style="cursor:pointer" title="Нажмите чтобы загрузить фото">
+                    <div class="staff-av" id="staff-av-1" onclick="uploadStaffPhoto(1)" >
                         <!-- заполняется JS -->
                     </div>
-                    <div class="s-name">Борисенко И. А.</div>
-                    <div class="s-role">Директор</div>
+                    <div class="s-name" id="s1-name">Борисенко И. А.</div>
+                    <div class="s-role" id="s1-role">Директор</div>
                     <a class="s-phone" href="tel:80234098213"><i class="fas fa-phone"></i> 8 (02340) 9-82-13</a>
                 </div>
             </div>
@@ -425,10 +425,10 @@
             <div class="card">
                 <div class="card-bar"></div>
                 <div class="staff-card">
-                    <div class="staff-av" id="staff-av-2" onclick="uploadStaffPhoto(2)" style="cursor:pointer" title="Нажмите чтобы загрузить фото">
+                    <div class="staff-av" id="staff-av-2" onclick="uploadStaffPhoto(2)" >
                     </div>
-                    <div class="s-name">Романов С. А.</div>
-                    <div class="s-role">Главный инженер</div>
+                    <div class="s-name" id="s2-name">Романов С. А.</div>
+                    <div class="s-role" id="s2-role">Главный инженер</div>
                     <a class="s-phone" href="tel:80234098211"><i class="fas fa-phone"></i> 8 (02340) 9-82-11</a>
                 </div>
             </div>
@@ -436,10 +436,10 @@
             <div class="card">
                 <div class="card-bar"></div>
                 <div class="staff-card">
-                    <div class="staff-av" id="staff-av-3" onclick="uploadStaffPhoto(3)" style="cursor:pointer" title="Нажмите чтобы загрузить фото">
+                    <div class="staff-av" id="staff-av-3" onclick="uploadStaffPhoto(3)" >
                     </div>
-                    <div class="s-name">Тимощенко В. Н.</div>
-                    <div class="s-role">Зам. по идеологии</div>
+                    <div class="s-name" id="s3-name">Тимощенко В. Н.</div>
+                    <div class="s-role" id="s3-role">Зам. по идеологии</div>
                     <a class="s-phone" href="tel:80234098215"><i class="fas fa-phone"></i> 8 (02340) 9-82-15</a>
                 </div>
             </div>
@@ -447,10 +447,10 @@
             <div class="card">
                 <div class="card-bar"></div>
                 <div class="staff-card">
-                    <div class="staff-av" id="staff-av-4" onclick="uploadStaffPhoto(4)" style="cursor:pointer" title="Нажмите чтобы загрузить фото">
+                    <div class="staff-av" id="staff-av-4" onclick="uploadStaffPhoto(4)" >
                     </div>
-                    <div class="s-name">Страпко В. Н.</div>
-                    <div class="s-role">Главный энергетик</div>
+                    <div class="s-name" id="s4-name">Страпко В. Н.</div>
+                    <div class="s-role" id="s4-role">Главный энергетик</div>
                     <a class="s-phone" href="tel:80234098257"><i class="fas fa-phone"></i> 8 (02340) 9-82-57</a>
                 </div>
             </div>
@@ -459,8 +459,8 @@
                 <div class="card-bar"></div>
                 <div class="staff-card">
                     <div class="staff-av"><i class="fas fa-user-friends"></i></div>
-                    <div class="s-name">Абон. отдел</div>
-                    <div class="s-role">Физические лица</div>
+                    <div class="s-name" id="s5-name">Абон. отдел</div>
+                    <div class="s-role" id="s5-role">Физические лица</div>
                     <a class="s-phone" href="tel:80234098228"><i class="fas fa-phone"></i> 8 (02340) 9-82-28</a>
                 </div>
             </div>
@@ -469,8 +469,8 @@
                 <div class="card-bar"></div>
                 <div class="staff-card">
                     <div class="staff-av"><i class="fas fa-briefcase"></i></div>
-                    <div class="s-name">Абон. отдел</div>
-                    <div class="s-role">Юридические лица</div>
+                    <div class="s-name" id="s6-name">Абон. отдел</div>
+                    <div class="s-role" id="s6-role">Юридические лица</div>
                     <a class="s-phone" href="tel:80234098232"><i class="fas fa-phone"></i> 8 (02340) 9-82-32</a>
                 </div>
             </div>
@@ -479,7 +479,7 @@
                 <div class="card-bar red"></div>
                 <div class="staff-card">
                     <div class="staff-av" style="background:#ffe5e5"><i class="fas fa-ambulance" style="color:var(--danger)"></i></div>
-                    <div class="s-name">Аварийная служба</div>
+                    <div class="s-name" id="s7-name">Аварийная служба</div>
                     <div class="s-role" style="color:var(--danger)">Круглосуточно 24/7</div>
                     <a class="s-phone" href="tel:80234098217"><i class="fas fa-phone"></i> 8 (02340) 9-82-17</a>
                 </div>
@@ -489,16 +489,14 @@
                 <div class="card-bar green"></div>
                 <div class="staff-card">
                     <div class="staff-av" style="background:#e8f5e9"><i class="fas fa-flask" style="color:#2e7d32"></i></div>
-                    <div class="s-name">Лаборатория</div>
+                    <div class="s-name" id="s8-name">Лаборатория</div>
                     <div class="s-role" style="color:#2e7d32">Контроль качества</div>
                     <a class="s-phone" href="tel:+375291087629"><i class="fas fa-mobile-alt"></i> +375 (29) 108-76-29</a>
                 </div>
             </div>
 
         </div>
-        <p style="text-align:center;font-size:.78rem;color:var(--text-m);margin-top:16px">
-            <i class="fas fa-camera"></i> Нажмите на аватар директора, гл.инженера, зам. по идеологии или гл.энергетика чтобы загрузить фото
-        </p>
+
     </div>
 </section>
 
@@ -529,20 +527,20 @@
                 <form id="apply-form" onsubmit="submitApply(event)">
                     <div class="frow">
                         <div class="fg">
-                            <label>Имя *</label>
+                            <label id="lbl-name">Имя *</label>
                             <input type="text" class="fc" id="ap-name" placeholder="Иванов Иван" required>
                         </div>
                         <div class="fg">
-                            <label>Телефон *</label>
+                            <label id="lbl-phone">Телефон *</label>
                             <input type="tel" class="fc" id="ap-phone" placeholder="+375 XX XXX-XX-XX" required>
                         </div>
                     </div>
                     <div class="fg">
-                        <label>Адрес</label>
+                        <label id="lbl-addr">Адрес</label>
                         <input type="text" class="fc" id="ap-addr" placeholder="ул. Ленина, д. 10, кв. 5">
                     </div>
                     <div class="fg">
-                        <label>Тип обращения *</label>
+                        <label id="lbl-type">Тип обращения *</label>
                         <select class="fc" id="ap-type" required>
                             <option value="">— Выберите —</option>
                             <option>Аварийная ситуация</option>
@@ -556,7 +554,7 @@
                         </select>
                     </div>
                     <div class="fg">
-                        <label>Описание</label>
+                        <label id="lbl-text">Описание</label>
                         <textarea class="fc" id="ap-text" placeholder="Опишите проблему или вопрос подробно..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-a btn-lg btn-bl">
@@ -568,7 +566,7 @@
                 <div class="ai-card">
                     <div class="ai-ico"><i class="fas fa-ambulance"></i></div>
                     <div class="ai-txt">
-                        <h4>Аварийная служба — 24/7</h4>
+                        <h4 id="ai1-title">Аварийная служба — 24/7</h4>
                         <p>При прорыве трубы, засоре, отсутствии воды:<br>
                         <a href="tel:80234098217">8 (02340) 9-82-17</a></p>
                     </div>
@@ -576,22 +574,22 @@
                 <div class="ai-card">
                     <div class="ai-ico"><i class="fas fa-clock"></i></div>
                     <div class="ai-txt">
-                        <h4>График работы</h4>
-                        <p>Пн–Пт: 08:00–17:00<br>Перерыв: 13:00–14:00<br>Сб–Вс: выходной</p>
+                        <h4 id="ai2-title">График работы</h4>
+                        <p id="ai2-text"><span id="ct4-text">Пн–Пт: 08:00–17:00<br>Перерыв: 13:00–14:00<br>Сб–Вс: выходной</span></p>
                     </div>
                 </div>
                 <div class="ai-card">
                     <div class="ai-ico"><i class="fas fa-check-circle"></i></div>
                     <div class="ai-txt">
-                        <h4>Срок обработки</h4>
-                        <p>Заявки рассматриваются в течение 3 рабочих дней. Аварийные — в течение 2 часов.</p>
+                        <h4 id="ai3-title">Срок обработки</h4>
+                        <p id="ai3-text">Заявки рассматриваются в течение 3 рабочих дней. Аварийные — в течение 2 часов.</p>
                     </div>
                 </div>
                 <div class="ai-card">
                     <div class="ai-ico"><i class="fas fa-map-marker-alt"></i></div>
                     <div class="ai-txt">
-                        <h4>Личный приём</h4>
-                        <p>ул. Доватора, 22, г. Речица<br>Кабинет 101 (абонентный отдел)</p>
+                        <h4 id="ai4-title">Личный приём</h4>
+                        <p id="ai4-text">ул. Доватора, 22, г. Речица<br>Кабинет 101 (абонентный отдел)</p>
                     </div>
                 </div>
             </div>
@@ -609,45 +607,45 @@
         <div class="emerg-strip">
             <div class="emerg-ico"><i class="fas fa-ambulance"></i></div>
             <div class="emerg-txt">
-                <h3>Аварийная диспетчерская служба</h3>
-                <p>Прорыв трубы, затопление, отсутствие воды — звоните немедленно!</p>
+                <h3 id="emerg-title">Аварийная диспетчерская служба</h3>
+                <p id="emerg-text">Прорыв трубы, затопление, отсутствие воды — звоните немедленно!</p>
             </div>
             <a href="tel:80234098217" class="emerg-phone">8 (02340) 9-82-17</a>
         </div>
         <div class="ct-grid">
             <div class="ct-card">
                 <div class="ct-ico"><i class="fas fa-map-marker-alt"></i></div>
-                <h3>Адрес</h3>
-                <p>247500, г. Речица,<br>ул. Доватора, д. 22<br>Кабинет 101</p>
+                <h3 id="ct1-title">Адрес</h3>
+                <p id="ct1-text">247500, г. Речица,<br>ул. Доватора, д. 22<br>Кабинет 101</p>
             </div>
             <div class="ct-card">
                 <div class="ct-ico"><i class="fas fa-phone-alt"></i></div>
-                <h3>Телефоны</h3>
+                <h3 id="ct2-title">Телефоны</h3>
                 <p>
-                    Директор: <a href="tel:80234098213">9-82-13</a><br>
+                    <span id="ct2-text">Директор: <a href="tel:80234098213">9-82-13</a></span><br>
                     Гл. инженер: <a href="tel:80234098211">9-82-11</a><br>
                     Абон. отдел: <a href="tel:80234098228">9-82-28</a>
                 </p>
             </div>
             <div class="ct-card">
                 <div class="ct-ico"><i class="fas fa-envelope"></i></div>
-                <h3>Email</h3>
+                <h3 id="ct3-title">Email</h3>
                 <p><a href="mailto:info-rechitsa@gomelvodokanal.by">info-rechitsa@<br>gomelvodokanal.by</a></p>
             </div>
             <div class="ct-card">
                 <div class="ct-ico"><i class="fas fa-clock"></i></div>
-                <h3>График работы</h3>
+                <h3 id="ct4-title">График работы</h3>
                 <p>Пн–Пт: 08:00–17:00<br>Перерыв: 13:00–14:00<br>Сб–Вс: выходной</p>
             </div>
             <div class="ct-card">
                 <div class="ct-ico"><i class="fas fa-flask"></i></div>
-                <h3>Лаборатория</h3>
-                <p><a href="tel:+375291087629">+375 (29) 108-76-29</a><br>Пн–Пт: 08:00–16:00</p>
+                <h3 id="ct5-title">Лаборатория</h3>
+                <p><span id="ct5-text"><a href="tel:+375291087629">+375 (29) 108-76-29</a><br>Пн–Пт: 08:00–16:00</span></p>
             </div>
             <div class="ct-card">
                 <div class="ct-ico"><i class="fas fa-globe"></i></div>
-                <h3>Веб-сайт</h3>
-                <p><a href="https://gomelvodokanal.by" target="_blank">gomelvodokanal.by</a><br>УНП: 400163027</p>
+                <h3 id="ct6-title">Веб-сайт</h3>
+                <p><span id="ct6-text"><a href="https://gomelvodokanal.by" target="_blank">gomelvodokanal.by</a><br>УНП: 400163027</span></p>
             </div>
         </div>
         <div class="map-wrap">
@@ -667,48 +665,48 @@
             <div class="fb">
                 <div style="display:flex;align-items:center;gap:11px;margin-bottom:12px">
                     <div class="logo-ico" style="width:38px;height:38px;font-size:1rem">💧</div>
-                    <h3>КПУП "Речицаводоканал"</h3>
+                    <h3 id="footer-logo-title">КПУП "Речицаводоканал"</h3>
                 </div>
-                <p>Обеспечиваем надёжное водоснабжение и водоотведение г. Речица и Речицкого района с 1967 года.</p>
+                <p id="footer-about">Обеспечиваем надёжное водоснабжение и водоотведение г. Речица и Речицкого района с 1967 года.</p>
                 <div style="margin-top:12px">
                     <a href="tel:80234098217" style="color:var(--accent);font-weight:700;font-size:.9rem">
-                        <i class="fas fa-phone-alt"></i> Аварийная: 8 (02340) 9-82-17
+                        <i class="fas fa-phone-alt"></i> <span id="footer-emerg-txt">Аварийная: 8 (02340) 9-82-17</span>
                     </a>
                 </div>
             </div>
             <div class="fc-col">
-                <h4>Услуги</h4>
+                <h4 id="footer-col-services">Услуги</h4>
                 <ul class="footer-links">
-                    <li><a href="#services">Консультации</a></li>
-                    <li><a href="#services">Аварийная служба</a></li>
-                    <li><a href="#services">Подключение</a></li>
-                    <li><a href="#services">Анализ воды</a></li>
-                    <li><a href="#services">Поверка счётчиков</a></li>
+                    <li><a href="#services" id="fl-svc1">Консультации</a></li>
+                    <li><a href="#services" id="fl-svc2">Аварийная служба</a></li>
+                    <li><a href="#services" id="fl-svc3">Подключение</a></li>
+                    <li><a href="#services" id="fl-svc4">Анализ воды</a></li>
+                    <li><a href="#services" id="fl-svc5">Поверка счётчиков</a></li>
                 </ul>
             </div>
             <div class="fc-col">
-                <h4>Информация</h4>
+                <h4 id="footer-col-info">Информация</h4>
                 <ul class="footer-links">
-                    <li><a href="#tariffs">Тарифы</a></li>
-                    <li><a href="#quality">Качество воды</a></li>
-                    <li><a href="#about">О предприятии</a></li>
-                    <li><a href="#news">Новости</a></li>
-                    <li><a href="#apply">Подать заявку</a></li>
+                    <li><a href="#tariffs" id="fl-inf1">Тарифы</a></li>
+                    <li><a href="#quality" id="fl-inf2">Качество воды</a></li>
+                    <li><a href="#about" id="fl-inf3">О предприятии</a></li>
+                    <li><a href="#news" id="fl-inf4">Новости</a></li>
+                    <li><a href="#apply" id="fl-inf5">Подать заявку</a></li>
                 </ul>
             </div>
             <div class="fc-col">
-                <h4>Контакты</h4>
+                <h4 id="footer-col-contacts">Контакты</h4>
                 <ul class="footer-links">
-                    <li><a href="#contacts">ул. Доватора, 22, Речица</a></li>
-                    <li><a href="tel:80234098217">Авар.: 8 (02340) 9-82-17</a></li>
-                    <li><a href="tel:80234098228">Абон.: 8 (02340) 9-82-28</a></li>
-                    <li><a href="mailto:info-rechitsa@gomelvodokanal.by">Написать email</a></li>
+                    <li><a href="#contacts" id="fl-ct1">ул. Доватора, 22, Речица</a></li>
+                    <li><a href="tel:80234098217" id="fl-ct2">Авар.: 8 (02340) 9-82-17</a></li>
+                    <li><a href="tel:80234098228" id="fl-ct3">Абон.: 8 (02340) 9-82-28</a></li>
+                    <li><a href="mailto:info-rechitsa@gomelvodokanal.by" id="fl-ct4">Написать email</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-btm">
             <p data-key="footer_copy">© 2026 КПУП «Речицаводоканал». Все права защищены.</p>
-            <p><span data-key="footer_since">Служим Речице с 1967 года</span> &nbsp;|&nbsp; <a href="#hero">Наверх ↑</a></p>
+            <p><span data-key="footer_since">Служим Речице с 1967 года</span> &nbsp;|&nbsp; <a href="#hero" id="footer-up">Наверх ↑</a></p>
         </div>
     </div>
 </footer>
