@@ -4,6 +4,9 @@
 ================================================================ */
 
 /* ── База данных (localStorage) ── */
+/* Знак белорусского рубля */
+const BYR_SIGN = '<svg class="byr-icon" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" aria-label="бел.руб."><g transform="translate(0,700) scale(0.1,-0.1)" fill="currentColor" stroke="none"><path d="M1758 4520 l-3 -2105 -462 -3 -463 -2 0 -305 0 -305 452 -2 452 -3 13 -25 c10 -19 13 -182 13 -733 l0 -708 1313 4 c1470 4 1447 3 1737 79 41 11 91 23 111 28 66 17 263 101 354 151 151 84 301 198 420 321 210 214 349 465 426 764 41 161 52 251 56 469 5 237 -14 388 -74 595 -19 65 -88 232 -113 275 -10 17 -28 48 -40 70 -135 245 -403 488 -701 636 -222 111 -445 173 -744 209 -147 18 -235 20 -1087 20 -829 0 -928 2 -942 16 -14 14 -16 119 -16 1010 0 619 4 1002 10 1013 9 18 70 18 1392 16 761 -2 1447 -1 1526 2 l142 6 0 306 0 306 -1885 0 -1885 0 -2 -2105z m2562 -1190 c242 -28 382 -66 555 -152 131 -66 195 -109 280 -190 123 -116 232 -288 283 -448 70 -218 67 -534 -8 -760 -117 -350 -394 -628 -760 -760 -46 -17 -140 -42 -209 -55 l-125 -25 -922 0 c-828 0 -924 2 -938 16 -14 14 -16 63 -14 427 l3 412 809 3 809 2 -7 46 c-3 26 -6 163 -6 305 l0 259 -789 0 c-704 0 -791 2 -805 16 -14 14 -16 69 -16 458 0 243 3 446 7 449 10 11 1758 8 1853 -3z"/></g></svg>'
+
 const DB = {
     get(k, d) { try { const v = localStorage.getItem('rv_' + k); return v !== null ? JSON.parse(v) : d; } catch { return d; } },
     set(k, v) { try { localStorage.setItem('rv_' + k, JSON.stringify(v)); } catch {} },
@@ -48,7 +51,7 @@ const STAFF_AVATARS = {
 
 /* ── Инициализация БД ── */
 function initDB() {
-    if (DB.get('init_v4', false)) return;
+    if (DB.get('init_v6', false)) return;
     DB.set('applications', [
         { id:1, name:'Иванов И.И.',      phone:'+375 29 123-45-67', address:'ул. Ленина, 12',     type:'Поверка/замена счётчика',   text:'Истёк срок поверки водомера.',              date:'02.04.2026', status:'Выполнена' },
         { id:2, name:'Петрова А.С.',     phone:'+375 29 234-56-78', address:'ул. Советская, 5',   type:'Жалоба на качество воды',   text:'Небольшое помутнение воды утром.',          date:'03.04.2026', status:'Выполнена' },
@@ -93,7 +96,7 @@ function initDB() {
           ] },
         { id:5,
           title:'Тарифы на водоснабжение с 1 апреля 2026 года',
-          text:'Решением Речицкого районного исполнительного комитета с 1 апреля 2026 года действуют следующие тарифы:\n\n• Холодное водоснабжение: 0,68 руб./м³ (субсидируемый 0,45 руб./м³ в пределах нормы)\n• Водоотведение: 0,54 руб./м³ (субсидируемый 0,36 руб./м³)\n• Норма: 5,0 м³ на человека в месяц.\n\nОплата: ЕРИП → «ЖКХ» → «Речицаводоканал», касса абонентского отдела (пн–пт 08:00–17:00) или e-mail.',
+          text:'Решением Речицкого районного исполнительного комитета с 1 апреля 2026 года действуют следующие тарифы:\n\n• Холодное водоснабжение: 0,68 Br/м³ (субсидируемый 0,45 Br/м³ в пределах нормы)\n• Водоотведение: 0,54 Br/м³ (субсидируемый 0,36 Br/м³)\n• Норма: 5,0 м³ на человека в месяц.\n\nОплата: ЕРИП → «ЖКХ» → «Речицаводоканал», касса абонентского отдела (пн–пт 08:00–17:00) или e-mail.',
           type:'general', date:'2026-04-01',
           photos:[
             'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80'
@@ -121,16 +124,16 @@ function initDB() {
         { name:'Остаточный хлор',   value:'0,33 мг/л',     norm:'0,3–0,5',  pct:66, ok:true,  icon:'💧' },
     ]);
     DB.set('tariffs_pop', [
-        { service:'Холодное водоснабжение',          unit:'1 м³',      price:'0,68 руб.', subsidy:'0,45 руб.' },
-        { service:'Водоотведение (канализация)',      unit:'1 м³',      price:'0,54 руб.', subsidy:'0,36 руб.' },
-        { service:'Вода из колонки (сверх нормы)',    unit:'1 м³',      price:'0,72 руб.', subsidy:'—' },
+        { service:'Холодное водоснабжение',          unit:'1 м³',      price:'0,68 '+BYR_SIGN, subsidy:'0,45 '+BYR_SIGN },
+        { service:'Водоотведение (канализация)',      unit:'1 м³',      price:'0,54 '+BYR_SIGN, subsidy:'0,36 '+BYR_SIGN },
+        { service:'Вода из колонки (сверх нормы)',    unit:'1 м³',      price:'0,72 '+BYR_SIGN, subsidy:'—' },
         { service:'Норма потребления (без счётчика)', unit:'чел./мес.', price:'5,0 м³',   subsidy:'—' },
     ]);
     DB.set('quality_date', 'март 2026');
     DB.set('adm_pass', 'admin123');
     DB.set('banner_text', '⚡ Плановое отключение воды: <strong>15 февраля с 09:00 до 14:00</strong> — ул. Ленина, д. 5–23.');
     // Фото руководства — пустые по умолчанию (ключ 'staff_photo_N')
-    DB.set('init_v4', true);
+    DB.set('init_v6', true);
 }
 initDB();
 
@@ -309,6 +312,10 @@ const LANG = {
         fl_ct3:  'Абон.: 8 (02340) 9-82-28',
         fl_ct4:  'Написать email',
         footer_up: 'Наверх ↑',
+        consent_text: 'Згодны(на) на апрацоўку персанальных дадзеных',
+        consent_link: 'падрабязней',
+        consent_text: 'Согласен(на) на обработку персональных данных',
+        consent_link: 'подробнее',
         mob_home: 'Главная',   mob_svc: 'Услуги',      mob_tar: 'Тарифы',
         mob_qual: 'Качество воды', mob_about: 'О предприятии', mob_staff: 'Руководство',
         mob_news: 'Новости',   mob_apply: 'Подать заявку', mob_ct: 'Контакты',
@@ -625,6 +632,11 @@ function switchLang(lang) {
     _setEl('#fl-ct1', L.fl_ct1);  _setEl('#fl-ct2', L.fl_ct2);
     _setEl('#fl-ct3', L.fl_ct3);  _setEl('#fl-ct4', L.fl_ct4);
     _setEl('#footer-up', L.footer_up);
+    // Consent
+    const cLbl = document.getElementById('consent-text-span');
+    const cLink = document.getElementById('consent-link-span');
+    if (cLbl) cLbl.textContent = L.consent_text || '';
+    if (cLink) cLink.textContent = L.consent_link || '';
     // Mobile nav links
     _setEl('#mnl-home',  L.mob_home);  _setEl('#mnl-svc',   L.mob_svc);
     _setEl('#mnl-tar',   L.mob_tar);   _setEl('#mnl-qual',  L.mob_qual);
@@ -1009,6 +1021,11 @@ function renderNews() {
 /* ── Заявка ── */
 function submitApply(e) {
     e.preventDefault();
+    const consent = document.getElementById('ap-consent');
+    if (consent && !consent.checked) {
+        toast('Необходимо дать согласие на обработку персональных данных', 'err');
+        return;
+    }
     const name    = document.getElementById('ap-name').value.trim();
     const phone   = document.getElementById('ap-phone').value.trim();
     const address = document.getElementById('ap-addr').value.trim();
@@ -1036,12 +1053,21 @@ const SVC = {
     emergency:    { t:'Аварийная служба', b:'<b>📞 Аварийная служба — КРУГЛОСУТОЧНО!</b><br><br>Звоните при:<br>• Прорыве водопроводной трубы<br>• Засоре канализации<br>• Отсутствии воды<br>• Подтоплении подвала<br><br><b>Телефон:</b> <a href="tel:80234098217" style="color:var(--primary)">8 (02340) 9-82-17</a>' },
     connection:   { t:'Подключение к сети', b:'Порядок подключения:<br>1. Заявка на технические условия<br>2. Получение ТУ (10 раб. дней)<br>3. Разработка проекта<br>4. Согласование и врезка<br>5. Договор на обслуживание<br><br>Срок: от 30 дней. Стоимость по тарифам.' },
     docs:         { t:'Справки и документы', b:'Выдаём:<br>• Справка об отсутствии задолженности<br>• Технические условия<br>• Характеристика сетей<br>• Акт разграничения<br><br>Кабинет 101 или по e-mail: <a href="mailto:info-rechitsa@gomelvodokanal.by">info-rechitsa@gomelvodokanal.by</a>' },
-    counter:      { t:'Поверка счётчиков', b:'Поверка счётчиков проводится раз в 4 года. Специалист выезжает на дом, процедура занимает 15–30 мин.<br><br>Запись: <a href="tel:80234098228">8 (02340) 9-82-28</a><br>Стоимость выезда: <b>32 руб.</b>' },
+    counter:      { t:'Поверка счётчиков', b:'Поверка счётчиков проводится раз в 4 года. Специалист выезжает на дом, процедура занимает 15–30 мин.<br><br>Запись: <a href="tel:80234098228">8 (02340) 9-82-28</a><br>Стоимость выезда: <b>32 '+BYR_SIGN+'</b>' },
     analysis:     { t:'Анализ воды', b:'Аккредитованная лаборатория проводит химический и микробиологический анализ воды по заявкам граждан.<br><br>Запись: <a href="tel:+375291087629">+375 (29) 108-76-29</a>' },
     debt:         { t:'Оплата и задолженность', b:'Оплатить можно:<br>• В кассе абонентского отдела (каб. 101, Пн–Пт 08:00–17:00)<br>• Через ЕРИП (раздел «ЖКХ» → «Речицаводоканал»)<br>• По e-mail с запросом квитанции<br><br>Телефон: <a href="tel:80234098228" style="color:var(--primary)">8 (02340) 9-82-28</a>' },
     sewage:       { t:'Водоотведение', b:'Услуги:<br>• Прочистка засоров (гидропромывка)<br>• Ремонт и замена участков труб<br>• Откачка септиков<br><br>Аварийная: <a href="tel:80234098217" style="color:var(--primary)">8 (02340) 9-82-17</a>' },
 };
 function showSvc(id) { const s = SVC[id]; if (s) showModal(s.t, s.b); }
+
+function showConsentModal() {
+    showModal(
+        'Согласие на обработку персональных данных',
+        '<p style="margin-bottom:10px">В соответствии с <strong>Законом РБ от 07.05.2021 № 99-З</strong> «О защите персональных данных» ваши данные используются исключительно для рассмотрения обращения и не передаются третьим лицам.</p>' +
+        '<p style="margin-bottom:10px">Срок хранения: не более 3 лет. Вы вправе отозвать согласие, обратившись в абонентский отдел: <strong>8 (02340) 9-82-28</strong></p>' +
+        '<p>Оператор данных: КПУП «Речицаводоканал», ул. Доватора, 22, г. Речица.</p>'
+    );
+}
 
 /* ── Тарифные вкладки ── */
 function switchTariff(id, btn) {
@@ -1349,7 +1375,7 @@ function renderAdmTariffs() {
 }
 function updTariff(i, f, v) { const t = DB.get('tariffs_pop', []); if (t[i]) { t[i][f] = v; DB.set('tariffs_pop', t); renderTariffsPublic(); } }
 function delTariff(i) { const t = DB.get('tariffs_pop', []); t.splice(i, 1); DB.set('tariffs_pop', t); renderAdmTariffs(); renderTariffsPublic(); toast('Строка удалена', 'warn'); }
-function addTariff() { const t = DB.get('tariffs_pop', []); t.push({ service:'Новая услуга', unit:'1 м³', price:'0,00 руб.', subsidy:'—' }); DB.set('tariffs_pop', t); renderAdmTariffs(); renderTariffsPublic(); }
+function addTariff() { const t = DB.get('tariffs_pop', []); t.push({ service:'Новая услуга', unit:'1 м³', price:'0,00 '+BYR_SIGN, subsidy:'—' }); DB.set('tariffs_pop', t); renderAdmTariffs(); renderTariffsPublic(); }
 
 /* --- Quality Admin --- */
 function renderAdmQuality() {
